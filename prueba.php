@@ -3,7 +3,7 @@ include("config.php");
 $query = "SELECT * FROM usuarios";
 print("<table>");
 $resultado=$mysqli->query($query);
-foreach ($resultado as $rows) { 
+while ($rows = $resultado->fetch_assoc()) {
 $query = "SELECT * FROM amigos WHERE id1=".$rows["id"]." OR id2=".$rows["id"];
 $amigos=$mysqli->query($query);
 print("<tr>");
